@@ -1,1 +1,1 @@
-# spring-boot-openshift
+# spring-boot-hello
