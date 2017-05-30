@@ -1,5 +1,6 @@
 #FROM docker.io/fabric8/s2i-java:1.3.6
-FROM fabric8/fabric8-java
+#FROM fabric8/fabric8-java
+FROM java:8
 
 ENV APM_VERSION=0.14.4.Final
 ENV APM_AGENT=/libs/hawkular-apm-agent.jar
@@ -13,4 +14,7 @@ USER root
 RUN chmod 444 /libs/hawkular-apm-agent.jar
 
 # S2I requires a numeric, non-0 UID. This is the UID for the jboss user in the base image
-USER 185
+#USER 185
+USER jboss
+ENTRYPOINT ["java", "-jar", $APM_AGENT]
+
